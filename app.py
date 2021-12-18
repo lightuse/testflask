@@ -1,6 +1,11 @@
-from fastapi import FastAPI
-app = FastAPI()
+from flask import Flask
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return 'Index Page!'
+
+@app.route('/health')
+def health():
+    return 'Health Check OK!!'
